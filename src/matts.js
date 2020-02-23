@@ -6,7 +6,7 @@ export default class Copybook extends React.Component {
     }
     componentDidUpdate(oldProps) {
         this.ctx.save();
-        const propNames = ["children", "size", 'type']
+        const propNames = ["children", "size", 'type', "font"]
         if (propNames.some((name) => oldProps[name] !== this.props[name])) {
             this.drawWord();
         }
@@ -60,11 +60,11 @@ export default class Copybook extends React.Component {
         this.ctx.stroke();
     }
     setWord(word) {
-        const { size } = this.props
+        const { size, font } = this.props
         this.ctx.textAlign = "center"
         this.ctx.textBaseline = "middle"
-        this.ctx.font = size + "px cursive";
-        this.ctx.fillText(word, size / 2, size / 2 * 0.8);
+        this.ctx.font = size * 0.7 + "px " + font;
+        this.ctx.fillText(word, size / 2, size / 2 * 1.09);
     }
 
     render() {

@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "FZKTJW";
+  src: url("./resource:font/FZKTJW.TTF") format("truetype"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "FZXKTJW";
+  src: url("./resource:font/FZXKTJW.TTF") format("truetype"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
