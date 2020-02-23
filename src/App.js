@@ -7,7 +7,7 @@ import './font.css';
 import Matts from './matts';
 function App() {
   const [str, setWords] = useState(``);
-  const [size, setSize] = useState(350);
+  const [size, setSize] = useState(160);
   const [type, setType] = useState("tian");
   const [font, setFont] = useState("FZKTJW");
   const [loadingFont, setLoadingFont] = useState(true)
