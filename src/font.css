@@ -1,12 +1,12 @@
 @font-face {
   font-family: "FZKTJW";
-  src: url("./resource:font/FZKTJW.TTF") format("truetype"); /* iOS 4.1- */
+  src: url("./resource/fonts/FZKTJW.TTF") format("truetype"); /* iOS 4.1- */
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "FZXKTJW";
-  src: url("./resource:font/FZXKTJW.TTF") format("truetype"); /* iOS 4.1- */
+  src: url("./resource/fonts/FZXKTJW.TTF") format("truetype"); /* iOS 4.1- */
   font-style: normal;
   font-weight: normal;
 }
@@ -14,14 +14,14 @@
 
 @font-face {
     font-family: "STFWXZKJW";
-    src: url("./resource:font/STFWXZKJW.TTF") format("truetype"); /* iOS 4.1- */
+    src: url("./resource/fonts/STFWXZKJW.TTF") format("truetype"); /* iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   }
 
 @font-face {
     font-family: "FZSJ-DQYBKSJW";
-    src: url("./resource:font/FZSJ-DQYBKSJW.TTF") format("truetype"); /* iOS 4.1- */
+    src: url("./resource/fonts/FZSJ-DQYBKSJW.TTF") format("truetype"); /* iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   }

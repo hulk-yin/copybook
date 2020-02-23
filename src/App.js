@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 // import logo from './logo.svg';
-import { Picker, Stepper, TextareaItem, Button, Icon } from 'antd-mobile';
+import { Picker, Stepper, TextareaItem, Button, Icon, } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 import './App.css';
 import './font.css';
 import Matts from './matts';
-const BrowerLogger = require('alife-logger');
-const __bl = BrowerLogger.singleton({pid:"d225hao5sm@01ab9cd471ac7f9",appType:"web",imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",sendResource:true,enableLinkTrace:true,behavior:true});
+import Help from './components/help/index';
+// const BrowerLogger = require('alife-logger');
+// const __bl = BrowerLogger.singleton({pid:"d225hao5sm@01ab9cd471ac7f9",appType:"web",imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",sendResource:true,enableLinkTrace:true,behavior:true});
 
 function App() {
   const [str, setWords] = useState(``);
@@ -16,7 +17,7 @@ function App() {
   const [loadingFont, setLoadingFont] = useState(true)
   useEffect(() => {
     const isLoad = document.fonts.check(size * 0.7 + "px " + font)
-    setLoadingFont(!isLoad)
+    setLoadingFont(!isLoad);
     if (!isLoad) {
       const fontInterval = setInterval(() => {
         const isLoad = document.fonts.check(size * 0.7 + "px " + font)
@@ -46,7 +47,7 @@ function App() {
     value: "FZSJ-DQYBKSJW"
   }].map(({ label, value }) => ({
     label: <font style={{
-      fontFamily:value
+      fontFamily: value
     }}>{label}</font>,
     value
   }))
@@ -125,6 +126,7 @@ function App() {
       <div className="copybook-page">
         {words.map((word, i) => <Matts type={type} font={font} size={size} key={i}>{word}</Matts>)}
       </div>
+      <Help />
     </div>
   );
 }
