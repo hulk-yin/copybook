@@ -8,7 +8,9 @@ export default class Copybook extends React.Component {
         this.ctx.save();
         const propNames = ["children", "size", 'type', "font"]
         if (propNames.some((name) => oldProps[name] !== this.props[name])) {
-            this.drawWord();
+            requestAnimationFrame(()=>{
+                this.drawWord();
+            })
         }
     }
     drawWord() {
