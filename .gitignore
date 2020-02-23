@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+asset-manifest.json
 precache-manifest.*.js
 service-worker.js
 index.html
