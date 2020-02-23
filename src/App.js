@@ -6,7 +6,7 @@ import './App.css';
 import './font.css';
 import Matts from './matts';
 function App() {
-  const [str, setWords] = useState("春风冬雪花飞入");
+  const [str, setWords] = useState("");
   const [size, setSize] = useState(60);
   const [type, setType] = useState("tian");
   const [font, setFont] = useState("FZKTJW");
