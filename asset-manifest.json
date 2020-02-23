@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/copybook/static/css/main.d1b05096.chunk.css",
     "main.js": "/copybook/static/js/main.cc5f83b3.chunk.js",
     "main.js.map": "/copybook/static/js/main.cc5f83b3.chunk.js.map",
@@ -19,5 +20,26 @@
     "static/js/2.b6fabe4d.chunk.js",
     "static/css/main.d1b05096.chunk.css",
     "static/js/main.cc5f83b3.chunk.js"
+=======
+    "main.css": "/copybook/static/css/main.19d1e137.chunk.css",
+    "main.js": "/copybook/static/js/main.96db4a30.chunk.js",
+    "main.js.map": "/copybook/static/js/main.96db4a30.chunk.js.map",
+    "runtime-main.js": "/copybook/static/js/runtime-main.5c075901.js",
+    "runtime-main.js.map": "/copybook/static/js/runtime-main.5c075901.js.map",
+    "static/js/2.50402c31.chunk.js": "/copybook/static/js/2.50402c31.chunk.js",
+    "static/js/2.50402c31.chunk.js.map": "/copybook/static/js/2.50402c31.chunk.js.map",
+    "index.html": "/copybook/index.html",
+    "precache-manifest.fb3423cce1bec8dd261c8edfb555e21b.js": "/copybook/precache-manifest.fb3423cce1bec8dd261c8edfb555e21b.js",
+    "service-worker.js": "/copybook/service-worker.js",
+    "static/css/main.19d1e137.chunk.css.map": "/copybook/static/css/main.19d1e137.chunk.css.map",
+    "static/js/2.50402c31.chunk.js.LICENSE.txt": "/copybook/static/js/2.50402c31.chunk.js.LICENSE.txt",
+    "static/media/font.css": "/copybook/static/media/FZXKTJW.ca994a92.TTF"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5c075901.js",
+    "static/js/2.50402c31.chunk.js",
+    "static/css/main.19d1e137.chunk.css",
+    "static/js/main.96db4a30.chunk.js"
+>>>>>>> e8963b9f9039797f5801c89e9b7c1c027c5b531b
   ]
 }

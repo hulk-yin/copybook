@@ -10,3 +10,18 @@
   font-style: normal;
   font-weight: normal;
 }
+
+
+@font-face {
+    font-family: "STFWXZKJW";
+    src: url("./resource:font/STFWXZKJW.TTF") format("truetype"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+  }
+
+@font-face {
+    font-family: "FZSJ-DQYBKSJW";
+    src: url("./resource:font/FZSJ-DQYBKSJW.TTF") format("truetype"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+  }

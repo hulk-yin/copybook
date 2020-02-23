@@ -16,6 +16,12 @@ function App() {
   }, {
     label: "方正新楷体简体",
     fontname: "FZXKTJW"
+  },{
+    label:"书体坊王羲之楷",
+    fontname:"STFWXZKJW"
+  },{
+    label:"方正手迹-丁谦硬笔楷书",
+    fontname:"FZSJ-DQYBKSJW"
   }]
   return (
     <div className="App">
