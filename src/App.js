@@ -5,6 +5,9 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 import './App.css';
 import './font.css';
 import Matts from './matts';
+const BrowerLogger = require('alife-logger');
+const __bl = BrowerLogger.singleton({pid:"d225hao5sm@01ab9cd471ac7f9",appType:"web",imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",sendResource:true,enableLinkTrace:true,behavior:true});
+
 function App() {
   const [str, setWords] = useState(``);
   const [size, setSize] = useState(160);
