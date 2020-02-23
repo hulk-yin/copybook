@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import logo from './logo.svg';
+import { Picker, Stepper, TextareaItem, Button } from 'antd-mobile';
+import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 import './App.css';
 import './font.css';
 import Matts from './matts';
@@ -28,74 +30,82 @@ function App() {
   const words = str.split("");
   const fonts = [{
     label: "方正楷体简体",
-    fontname: "FZKTJW",
+    value: "FZKTJW",
     offset: { x: 1, y: 1.09 }
   }, {
     label: "方正新楷体简体",
-    fontname: "FZXKTJW"
+    value: "FZXKTJW"
   }, {
     label: "书体坊王羲之楷",
-    fontname: "STFWXZKJW"
+    value: "STFWXZKJW"
   }, {
     label: "方正手迹-丁谦硬笔楷书",
-    fontname: "FZSJ-DQYBKSJW"
+    value: "FZSJ-DQYBKSJW"
   }]
   return (
     <div className="App">
       <header className="App-header">
         <div>
-          <button
-            onClick={() => setSize(Math.max(30, size - 10))}
-          >-</button>{size}<button
-            onClick={() => setSize(Math.min(300, size + 10))}
-          >+</button>
+          <Stepper
+            showNumber
+            max={300}
+            min={40}
+            value={size}
+            step={10}
+            onChange={setSize}
+          />
           &nbsp;
           &nbsp;
-          <button
-            onClick={() => {
-              setWords("");
-              setType('tian')
-              requestAnimationFrame(() => {
-                setWords(str);
-              })
-            }}
-          >田字格</button>
-          <button
-            onClick={() => {
-              setWords("");
-              setType('mi')
-              requestAnimationFrame(() => {
-                setWords(str);
-              })
-            }}
-          >米字格</button>
-          选择字体
-          <select
-            value={font}
-            onChange={(e) => {
-              setWords("");
-              setFont(e.target.value)
-              requestAnimationFrame(() => {
-                setWords(str);
-              })
-            }}
-          >
-            {fonts.map((item) => (<option
-              key={item.fontname}
-              // selected={font === item.fontname}
-              value={item.fontname}
+          <div>
+            <Button
+              inline
+              size="small"
+              type="ghost"
+              icon={type === "tian" ? "check-circle-o":"ellipsis"}
+              onClick={() => {
+                setWords("");
+                setType('tian')
+                requestAnimationFrame(() => {
+                  setWords(str);
+                })
+              }}
+            >田字格</Button>
+            <Button
+              inline
+              size="small"
+              type="ghost"
+              icon={type === "mi" ? "check-circle-o":"ellipsis"}
+              onClick={() => {
+                setWords("");
+                setType('mi')
+                requestAnimationFrame(() => {
+                  setWords(str);
+                })
+              }}
+            >米字格</Button>
+
+          </div>
+          <div>
+            <Picker
+              data={fonts}
+              value={[font]}
+              cols={1}
+              onOk={v => {
+                setFont(v[0])
+              }}
             >
-              {item.label}
-            </option>))}
-          </select>
+              <Button>
+                选择字体-{fonts.filter(({ value }) => value === font).map(({ label }) => label)}</Button>
+            </Picker>
+          </div>
         </div>
-        <input className="words-input"
-          defaultValue={str}
-          placeholder="在这里输入要生成字体的文字"
-          onChange={(e) => {
-            setWords(e.target.value)
-          }}>
-        </input>
+
+        <TextareaItem
+            placeholder="在这里输入要生成字体的文字"
+            defaultValue={str}
+            onChange={setWords}
+            autoHeight
+          />
       </header>
       <div className="copybook-page">
         {words.map((word, i) => <Matts type={type} font={font} size={size} key={i}>{word}</Matts>)}
