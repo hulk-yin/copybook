@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import './font.css';
 import Matts from './matts';
 function App() {
   const [str, setWords] = useState("春风冬雪花飞入");
-  const [size, setSize] = useState(200);
+  const [size, setSize] = useState(60);
   const [type, setType] = useState("tian");
   const [font, setFont] = useState("FZKTJW");
+
+  useEffect(() => {
+    const isLoad = document.fonts.check(size * 0.7 + "px " + font)
+    if (!isLoad) {
+      const fontInterval = setInterval(() => {
+        const isLoad = document.fonts.check(size * 0.7 + "px " + font)
+        if (isLoad) {
+          setWords("");
+          requestAnimationFrame(() => {
+            setWords(str);
+          })
+          clearInterval(fontInterval)
+        }
+      }, 100)
+    }
+
+  })
   const words = str.split("");
   const fonts = [{
     label: "方正楷体简体",
@@ -16,12 +33,12 @@ function App() {
   }, {
     label: "方正新楷体简体",
     fontname: "FZXKTJW"
-  },{
-    label:"书体坊王羲之楷",
-    fontname:"STFWXZKJW"
-  },{
-    label:"方正手迹-丁谦硬笔楷书",
-    fontname:"FZSJ-DQYBKSJW"
+  }, {
+    label: "书体坊王羲之楷",
+    fontname: "STFWXZKJW"
+  }, {
+    label: "方正手迹-丁谦硬笔楷书",
+    fontname: "FZSJ-DQYBKSJW"
   }]
   return (
     <div className="App">

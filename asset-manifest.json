@@ -2,6 +2,7 @@
   "files": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "main.css": "/copybook/static/css/main.d1b05096.chunk.css",
     "main.js": "/copybook/static/js/main.cc5f83b3.chunk.js",
     "main.js.map": "/copybook/static/js/main.cc5f83b3.chunk.js.map",
@@ -30,11 +31,17 @@
     "main.js": "/copybook/static/js/main.f9e6d352.chunk.js",
     "main.js.map": "/copybook/static/js/main.f9e6d352.chunk.js.map",
 >>>>>>> 95dd24fdcfaffc88ecfa42924d3507bd7a063c6e
+=======
+    "main.css": "/copybook/static/css/main.af3a46c5.chunk.css",
+    "main.js": "/copybook/static/js/main.f9e6d352.chunk.js",
+    "main.js.map": "/copybook/static/js/main.f9e6d352.chunk.js.map",
+>>>>>>> 7b1339c2eda4531414dfc3b81638b348f5f63783
     "runtime-main.js": "/copybook/static/js/runtime-main.5c075901.js",
     "runtime-main.js.map": "/copybook/static/js/runtime-main.5c075901.js.map",
     "static/js/2.50402c31.chunk.js": "/copybook/static/js/2.50402c31.chunk.js",
     "static/js/2.50402c31.chunk.js.map": "/copybook/static/js/2.50402c31.chunk.js.map",
     "index.html": "/copybook/index.html",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "precache-manifest.fb3423cce1bec8dd261c8edfb555e21b.js": "/copybook/precache-manifest.fb3423cce1bec8dd261c8edfb555e21b.js",
     "service-worker.js": "/copybook/service-worker.js",
@@ -42,16 +49,22 @@
     "static/js/2.50402c31.chunk.js.LICENSE.txt": "/copybook/static/js/2.50402c31.chunk.js.LICENSE.txt",
     "static/media/font.css": "/copybook/static/media/FZXKTJW.ca994a92.TTF"
 =======
+=======
+>>>>>>> 7b1339c2eda4531414dfc3b81638b348f5f63783
     "precache-manifest.1a775695013dddc975c3082cb91833b8.js": "/copybook/precache-manifest.1a775695013dddc975c3082cb91833b8.js",
     "service-worker.js": "/copybook/service-worker.js",
     "static/css/main.af3a46c5.chunk.css.map": "/copybook/static/css/main.af3a46c5.chunk.css.map",
     "static/js/2.50402c31.chunk.js.LICENSE.txt": "/copybook/static/js/2.50402c31.chunk.js.LICENSE.txt",
     "static/media/font.css": "/copybook/static/media/STFWXZKJW.6632e06a.TTF"
+<<<<<<< HEAD
 >>>>>>> 95dd24fdcfaffc88ecfa42924d3507bd7a063c6e
+=======
+>>>>>>> 7b1339c2eda4531414dfc3b81638b348f5f63783
   },
   "entrypoints": [
     "static/js/runtime-main.5c075901.js",
     "static/js/2.50402c31.chunk.js",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "static/css/main.19d1e137.chunk.css",
     "static/js/main.96db4a30.chunk.js"
@@ -60,5 +73,9 @@
     "static/css/main.af3a46c5.chunk.css",
     "static/js/main.f9e6d352.chunk.js"
 >>>>>>> 95dd24fdcfaffc88ecfa42924d3507bd7a063c6e
+=======
+    "static/css/main.af3a46c5.chunk.css",
+    "static/js/main.f9e6d352.chunk.js"
+>>>>>>> 7b1339c2eda4531414dfc3b81638b348f5f63783
   ]
 }
