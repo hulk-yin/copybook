@@ -5,7 +5,11 @@ export default () => {
     const [visible, setVisible] = useState(false)
     return <div>
         <Button
-            onClick={() => setVisible(true)}
+            onClick={() => {
+                
+                window._czc && window._czc.push(["_trackEvent", "help", "click", '查看帮', 1, 'help_btn']);
+
+                setVisible(true)}}
         >帮助</Button>
         <Modal
             visible={visible}

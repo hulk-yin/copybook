@@ -6,7 +6,7 @@ import './App.css';
 import './font.css';
 import Matts from './matts';
 import Help from './components/help/index';
-
+window._czc = window._czc || [];
 function App() {
   const [str, setWords] = useState(``);
   const [size, setSize] = useState(160);
@@ -30,6 +30,7 @@ function App() {
 
   }, [size, font, str])
   const words = str.split("");
+  // 字体来源：https://www.foundertype.com/
   const fonts = [{
     label: "方正楷体简体",
     value: "FZKTJW",
@@ -59,7 +60,10 @@ function App() {
             min={40}
             value={size}
             step={10}
-            onChange={setSize}
+            onChange={(v) => {
+              window._czc && window._czc.push(["_trackEvent", "setting", "size", '字体大小', v, 'stepper']);
+              setSize(v)
+            }}
           />
           &nbsp;
           &nbsp;
@@ -72,6 +76,8 @@ function App() {
               onClick={() => {
                 setWords("");
                 setType('tian')
+                window._czc && window._czc.push(["_trackEvent", "setting", "type", '田字格', 1, 'bt_tian']);
+
                 requestAnimationFrame(() => {
                   setWords(str);
                 })
@@ -83,6 +89,9 @@ function App() {
               type="ghost"
               icon={type === "mi" ? "check-circle-o" : "ellipsis"}
               onClick={() => {
+                window._czc && window._czc.push(["_trackEvent", "setting", "type", '米字格', 1, 'bt_mi']);
+                // _czc.push(["_trackEvent",category,action,label,value,nodeid]);
+
                 setWords("");
                 setType('mi')
                 requestAnimationFrame(() => {
@@ -98,7 +107,10 @@ function App() {
               value={[font]}
               cols={1}
               onOk={v => {
-                setFont(v[0])
+                const value = v[0];
+                const label = fonts.filter(({ value }) => value === v[0]).map(({ label }) => label)
+                window._czc && window._czc.push(["_trackEvent", "setting", "font", label, 1, 'font_select']);
+                setFont(value)
               }}
             >
               <Button style={{
