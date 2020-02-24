@@ -1,6 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 相关版权说明
+方正字体：https://www.foundertype.com/
+
+自动绘制功能：https://hanziwriter.org
 
 ## Available Scripts
+
 
 In the project directory, you can run:
 

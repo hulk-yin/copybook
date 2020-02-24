@@ -137,6 +137,9 @@ function App() {
         {words.map((word, i) => <Matts type={type} font={font} size={size} key={i}>{word}</Matts>)}
       </div>
       <Help />
+      <div style="color: #999;   margin: 10px;">
+        字体版权： 方正字体库(https://www.foundertype.com/)
+      </div>
     </div>
   );
 }
