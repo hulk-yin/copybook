@@ -39,12 +39,17 @@ function App() {
     label: "方正新楷体简体",
     value: "FZXKTJW"
   }, {
+    label: "方正字迹-仿颜简体	",
+    value: "FZZJ-FYJW"
+  }, {
     label: "书体坊王羲之楷",
     value: "STFWXZKJW"
-  }, {
-    label: "方正手迹-丁谦硬笔楷书",
-    value: "FZSJ-DQYBKSJW"
-  }].map(({ label, value }) => ({
+  },
+    // {
+    //   label: "方正手迹-丁谦硬笔楷书",
+    //   value: "FZSJ-DQYBKSJW"
+    // }
+  ].map(({ label, value }) => ({
     label: <font style={{
       fontFamily: value
     }}>{label}</font>,
@@ -137,7 +142,10 @@ function App() {
         {words.map((word, i) => <Matts type={type} font={font} size={size} key={i}>{word}</Matts>)}
       </div>
       <Help />
-      <div style="color: #999;   margin: 10px;">
+      <div style={{
+        color: "#999",
+        margin: "10px"
+      }}>
         字体版权： 方正字体库(https://www.foundertype.com/)
       </div>
     </div>

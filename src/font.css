@@ -20,8 +20,15 @@
   }
 
 @font-face {
+    font-family: "FZZJ-FYJW";
+    src: url("./resource/fonts/FZZJ-FYJW.TTF") format("truetype"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+  }
+  @font-face {
     font-family: "FZSJ-DQYBKSJW";
     src: url("./resource/fonts/FZSJ-DQYBKSJW.TTF") format("truetype"); /* iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   }
+  
