@@ -32,16 +32,23 @@ export default class Writer extends React.Component {
             }}
             {...props}
         >
-            <div
-                style={{
-                    width: 300,
-                    height: 300,
-                    margin:"auto"
-                }}
-                ref={(el) => {
-                    this.element = el;
-                }}
-            />
+            <svg 
+            xmlns="http://www.w3.org/2000/svg"
+            ref={(el) => {
+                this.element = el;
+            }}
+            style={{
+                marginTop:"50",
+                border:"1px solid #999999"
+            }}
+            width="300" 
+            height="300"
+            id="grid-background-target">
+            <line x1="0" y1="0" x2="300" y2="300" strokeDasharray="5 3" stroke="#DDD" />
+            <line x1="300" y1="0" x2="0" y2="300" strokeDasharray="5 3" stroke="#DDD" />
+            <line x1="150" y1="0" x2="150" y2="300" strokeDasharray="5 3" stroke="#DDD" />
+            <line x1="0" y1="150" x2="300" y2="150" strokeDasharray="5 3" stroke="#DDD" />
+            </svg>
             <div style={{
                 color:"#999999999",
                 whiteSpace:"pre-line"
