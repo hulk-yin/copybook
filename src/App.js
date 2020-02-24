@@ -6,8 +6,6 @@ import './App.css';
 import './font.css';
 import Matts from './matts';
 import Help from './components/help/index';
-const BrowerLogger = require('alife-logger');
-const __bl = BrowerLogger.singleton({pid:"d225hao5sm@01ab9cd471ac7f9",appType:"web",imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",sendResource:true,enableLinkTrace:true,behavior:true});
 
 function App() {
   const [str, setWords] = useState(``);
