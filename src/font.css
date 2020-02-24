@@ -31,4 +31,25 @@
     font-style: normal;
     font-weight: normal;
   }
+  @font-face{
+    font-family: "TYZKSJW";
+    src: url("./resource/fonts/TYZKSJW.TTF") format("truetype"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+  } 
+
+
+  @font-face{
+    font-family: "FZYBKSJW";
+    src: url("./resource/fonts/FZYBKSJW.TTF") format("truetype"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+  } 
+
+  @font-face{
+    font-family: "PZHGBZTJW";
+    src: url("./resource/fonts/PZHGBZTJW.TTF") format("truetype"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+  } 
   

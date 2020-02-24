@@ -7,7 +7,7 @@ import './font.css';
 import Matts from './components/matts/index';
 import Help from './components/help/index';
 window._czc = window._czc || [];
-let sizeTimer ;
+let sizeTimer;
 
 function App() {
   const [str, setWords] = useState(window.localStorage.getItem("current.words") || "");
@@ -40,6 +40,15 @@ function App() {
   }, {
     label: "方正新楷体简体",
     value: "FZXKTJW"
+    // }, {
+    //   label: "田英章楷书",
+    //   value: "TYZKSJW"
+    // }, {
+    //   label: "方正硬笔楷书简体",
+    //   value: "FZYBKSJW",
+    // }, {
+    //   label: "庞中华钢笔字体",
+    //   value: "PZHGBZTJW",
   }, {
     label: "方正字迹-仿颜简体	",
     value: "FZZJ-FYJW"
@@ -69,10 +78,10 @@ function App() {
             value={size}
             step={10}
             onChange={(v) => {
-              sizeTimer = setTimeout(()=>{
-                window.localStorage.setItem("current.size",v);
+              sizeTimer = setTimeout(() => {
+                window.localStorage.setItem("current.size", v);
                 window._czc && window._czc.push(["_trackEvent", "setting", "size", '字体大小', v, 'stepper']);
-              },3000)
+              }, 3000)
               setSize(v)
             }}
           />
