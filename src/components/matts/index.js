@@ -35,8 +35,10 @@ export default class Copybook extends React.Component {
     drawMatts() {
         const { size } = this.props
         var ctx = this.ctx;
-        ctx.strokeStyle = "#0000ff";
+        ctx.strokeStyle = "#666666";
         ctx.strokeRect(1, 1, size - 2, size - 2);
+
+        ctx.strokeStyle = "#999999";
         this.ctx.setLineDash([size / 40, size / 40])
         // ctx.strokeRect(size / 4, size / 4, size / 2, size / 2);
         ctx.moveTo(size / 2, 0);

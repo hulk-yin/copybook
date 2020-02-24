@@ -3,6 +3,7 @@
 
 自动绘制功能：https://hanziwriter.org
 
+ttf2svg : https://www.npmjs.com/package/ttf2svg
 ## Available Scripts
 
 
