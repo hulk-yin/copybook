@@ -53,6 +53,7 @@ function App() {
     label: <font style={{
       fontFamily: value
     }}>{label}</font>,
+    labelText:label,
     value
   }))
   return (
@@ -113,7 +114,7 @@ function App() {
               cols={1}
               onOk={v => {
                 const value = v[0];
-                const label = fonts.filter(({ value }) => value === v[0]).map(({ label }) => label)
+                const label = fonts.filter(({ value }) => value === v[0]).map(({ labelText }) => labelText)[0]
                 window._czc && window._czc.push(["_trackEvent", "setting", "font", label, 1, 'font_select']);
                 setFont(value)
               }}
