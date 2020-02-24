@@ -1,6 +1,10 @@
 import React from 'react';
+import HanziWriter from '../hanzi-writer/index';
 
 export default class Copybook extends React.Component {
+    state = {
+        visible: false
+    }
     componentDidMount() {
         this.drawWord();
     }
@@ -8,7 +12,7 @@ export default class Copybook extends React.Component {
         this.ctx.save();
         const propNames = ["children", "size", 'type', "font"]
         if (propNames.some((name) => oldProps[name] !== this.props[name])) {
-            requestAnimationFrame(()=>{
+            requestAnimationFrame(() => {
                 this.drawWord();
             })
         }
@@ -70,12 +74,23 @@ export default class Copybook extends React.Component {
     }
 
     render() {
-        const { size } = this.props
-        return <canvas height={size} width={size}
+        const { size, children } = this.props
+        const { visible } = this.state;
+        return <div>        <canvas height={size} width={size}
+            onClick={() => {
+                this.setState({ visible: true })
+            }}
             ref={(canvas) => {
                 if (canvas)
                     this.ctx = canvas.getContext("2d")
             }}
         ></canvas >
+            <HanziWriter
+                visible={visible}
+                onClose={() => {
+                    this.setState({ visible: false })
+                }}
+            >{children}</HanziWriter>
+        </div>
     }
 }

@@ -4,12 +4,14 @@ import { Picker, Stepper, TextareaItem, Button, Icon, } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 import './App.css';
 import './font.css';
-import Matts from './matts';
+import Matts from './components/matts/index';
 import Help from './components/help/index';
 window._czc = window._czc || [];
+let sizeTimer ;
+
 function App() {
-  const [str, setWords] = useState(``);
-  const [size, setSize] = useState(160);
+  const [str, setWords] = useState(window.localStorage.getItem("current.words") || "");
+  const [size, setSize] = useState(parseInt(window.localStorage.getItem("current.size"), 10) || 160);
   const [type, setType] = useState("tian");
   const [font, setFont] = useState("FZKTJW");
   const [loadingFont, setLoadingFont] = useState(true)
@@ -53,7 +55,7 @@ function App() {
     label: <font style={{
       fontFamily: value
     }}>{label}</font>,
-    labelText:label,
+    labelText: label,
     value
   }))
   return (
@@ -67,7 +69,10 @@ function App() {
             value={size}
             step={10}
             onChange={(v) => {
-              window._czc && window._czc.push(["_trackEvent", "setting", "size", '字体大小', v, 'stepper']);
+              sizeTimer = setTimeout(()=>{
+                window.localStorage.setItem("current.size",v);
+                window._czc && window._czc.push(["_trackEvent", "setting", "size", '字体大小', v, 'stepper']);
+              },3000)
               setSize(v)
             }}
           />
@@ -130,7 +135,10 @@ function App() {
           placeholder="在这里输入要生成字体的文字"
           defaultValue={str}
           onChange={setWords}
-          onBlur={setWords}
+          onBlur={(v) => {
+            window.localStorage.setItem("current.words", v);
+            setWords(v)
+          }}
           autoHeight
         />
       </header>
