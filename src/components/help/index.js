@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Modal, Toast } from 'antd-mobile';
+import { Button, Modal } from 'antd-mobile';
 import './help.css';
 export default () => {
     const [visible, setVisible] = useState(false)
     return <div>
-        <Button
-            onClick={() => {
+        <i
+        className="iconfont icon-help"
+        onClick={() => {
                 
                 window._czc && window._czc.push(["_trackEvent", "help", "click", '查看帮', 1, 'help_btn']);
 
                 setVisible(true)}}
-        >帮助</Button>
+       />
         <Modal
             visible={visible}
             onClose={() => {

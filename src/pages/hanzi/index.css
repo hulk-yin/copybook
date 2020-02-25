@@ -1,18 +1,4 @@
-@import '//at.alicdn.com/t/font_1656641_sdd7w7hexx.css';
-.iconfont{
-  font-size: 20px;
-}
-.icon-setting{
-  font-size: 28px;
-  cursor: pointer;
-}
-.App {
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-  background-color: #fffbf2;
-}
- 
+
 .words-input {
   height: 30px;
   width: 95%;
@@ -36,5 +22,4 @@
   border: 1px solid #ccc;
   border-radius: 50%;
   margin-right: 5px;
-
 }
