@@ -30,7 +30,7 @@ export default ({ children, history, location, ...props }) => {
           >
             {pathname === "/" || pathname === '/hanzi' ? children : null}
           </TabBar.Item>
-          <TabBar.Item
+          {/* <TabBar.Item
             title='字母'
             key='zimu'
             icon={<div className='activities-icon' />}
@@ -42,7 +42,7 @@ export default ({ children, history, location, ...props }) => {
             }}
           >
             {pathname === '/zimu' ? children : null}
-          </TabBar.Item>
+          </TabBar.Item> */}
         </TabBar>
       </div >
     </div>
