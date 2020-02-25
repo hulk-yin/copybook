@@ -157,28 +157,27 @@ function App() {
                       选择字体-{fonts.filter(({ value }) => value === font).map(({ label }) => label)}</Button>
                   </Picker>
                 </WingBlank>
-                <WhiteSpace />
-                <TextareaItem
-                  style={{
-                    border: "1px dotted #CCC",
-                    padding: 5,
-                    fontFamily: font,
-                    maxHeight: 300
-                  }}
-                  placeholder="在这里输入要生成字体的文字"
-                  defaultValue={str}
-                  onChange={setWords}
-                  onBlur={(v) => {
-                    window.localStorage.setItem("current.words", v);
-                    setWords(v)
-                  }}
-                  autoHeight
-                />
               </div>
             </List.Item>
           </List>}
         >
 
+          <TextareaItem
+            style={{
+              border: "1px dotted #CCC",
+              padding: 5,
+              fontFamily: font,
+              maxHeight: 300
+            }}
+            placeholder="在这里输入要生成字体的文字"
+            defaultValue={str}
+            onChange={setWords}
+            onBlur={(v) => {
+              window.localStorage.setItem("current.words", v);
+              setWords(v)
+            }}
+            autoHeight
+          />
           {loadingFont ? <div>
             <Icon type="loading" />
             加载字体，请耐心等待
