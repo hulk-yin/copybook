@@ -92,11 +92,11 @@ function App() {
           </React.Fragment>
         }
       >字帖生成</NavBar>
-      <div style={{ marginTop: 0 }}>
+      <div style={{ marginTop: 0, }}>
         <Drawer
           position="top"
           style={{ top: 45, minHeight: document.documentElement.clientHeight - 45 }}
-          contentStyle={{ color: '#A6A6A6', textAlign: 'center', }}
+          contentStyle={{ color: '#A6A6A6', backgroundColor: "#edfbf6", textAlign: 'center', }}
           sidebarStyle={{ border: '1px solid #ddd' }}
           docked={docked}
           sidebar={<List className="App-header">
