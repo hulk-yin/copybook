@@ -4,7 +4,7 @@ import { Picker, NavBar, Drawer, List, Stepper, TextareaItem, Button, Icon, Segm
 import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 import '.'
 // import './App.css';
-// import './font.css'; 
+import './index.css';
 import Matts from '../../components/matts/index';
 import Help from '../../components/help/index';
 
@@ -67,7 +67,7 @@ function App() {
             <Help />
             <i
               onTouchEnd={() => {
-                 setDocked(!docked)
+                setDocked(!docked)
               }}
               className="iconfont icon-setting" />
           </React.Fragment>
@@ -87,7 +87,9 @@ function App() {
                 <WingBlank>
                   <Stepper
                     showNumber
-                    max={400}
+                    max={window.visualViewport ?
+                      Math.floor((window.visualViewport.width - (40 * 2)) / 10) * 10
+                      : 300}
                     min={40}
                     value={size}
                     step={10}
@@ -110,7 +112,7 @@ function App() {
                       const { selectedSegmentIndex: v, value: label } = e.nativeEvent;
                       const type = v === 1 ? "mi" : "tian";
                       setType(type)
-                      window.localStorage.setItem("current.type",type)
+                      window.localStorage.setItem("current.type", type)
                       window._czc && window._czc.push(["_trackEvent", "setting", "type", label, 1, 'bt_' + type]);
                     }}
                   />
@@ -155,8 +157,10 @@ function App() {
             }}
             autoHeight
           />
-          <div className="copybook-page" onTouchEnd={() => setDocked(false)}>
-            {words.map((word, i) => <Matts type={type} font={font} size={size} key={i}>{word}</Matts>)}
+          <div className="copybook-page">
+            <div className="copybook-page-box" onTouchEnd={() => setDocked(false)}>
+              {words.map((word, i) => <Matts type={type} font={font} size={size} key={i}>{word}</Matts>)}
+            </div>
           </div>
 
           <div style={{

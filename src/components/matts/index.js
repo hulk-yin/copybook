@@ -91,27 +91,29 @@ export default class Copybook extends React.Component {
                     this.element = el;
                 }}
                 style={{
-                    marginTop: "50",
+                    margin: "10",
                     border: "1px solid #999999"
                 }}
                 width={size}
                 height={size}
                 id="grid-background-target">
-                {type === "mi" ? <React.Fragment>
-                    <line x1="0" y1="0" x2={size} y2={size} strokeDasharray={`${size / 60} ${size / 100}`} stroke="#DDD" />
-                    <line x1={size} y1="0" x2="0" y2={size} strokeDasharray={`${size / 60} ${size / 100}`} stroke="#DDD" />
-                </React.Fragment>:null}
+                <g id="matts">
+                    {type === "mi" ? <React.Fragment>
+                        <line x1="0" y1="0" x2={size} y2={size} strokeDasharray={`${size / 60} ${size / 100}`} stroke="#DDD" />
+                        <line x1={size} y1="0" x2="0" y2={size} strokeDasharray={`${size / 60} ${size / 100}`} stroke="#DDD" />
+                    </React.Fragment> : null}
                     <line x1={size / 2} y1="0" x2={size / 2} y2={size} strokeDasharray={`${size / 60} ${size / 100}`} stroke="#DDD" />
                     <line x1="0" y1={size / 2} x2={size} y2={size / 2} strokeDasharray={`${size / 60} ${size / 100}`} stroke="#DDD" />
-                    <text
-                        x={size * 0.5}
-                        y={size * 0.5 * 1.22}
-                        style={{
-                            dominantBaseline: "middle",
-                            textAnchor: "middle"
-                            // style='dominant-baseline:middle;text-anchor:middle;'
-                        }}
-                        fontSize={size * 0.75} fontFamily={fontFamily}>{children}</text>
+                </g>
+                <text
+                    x={size * 0.5}
+                    y={size * 0.5 * 1.22}
+                    style={{
+                        dominantBaseline: "middle",
+                        textAnchor: "middle"
+                        // style='dominant-baseline:middle;text-anchor:middle;'
+                    }}
+                    fontSize={size * 0.75} fontFamily={fontFamily}>{children}</text>
             </svg>
             <HanziWriter
                 visible={visible}
