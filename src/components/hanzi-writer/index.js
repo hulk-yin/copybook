@@ -18,7 +18,9 @@ export default class Writer extends React.Component {
             width: 300,
             height: 300,
             padding: 30,
-            showOutline: true
+            showOutline: true,
+            strokeColor:"#c43b3b",
+            radicalColor:"#333333"
         });
         this.writer.animateCharacter();
     }
