@@ -20,7 +20,7 @@ const Setting = () => {
 function App() {
   const [str, setWords] = useState(window.localStorage.getItem("current.words") || "");
   const [size, setSize] = useState(parseInt(window.localStorage.getItem("current.size"), 10) || 160);
-  const [type, setType] = useState("tian");
+  const [type, setType] = useState(window.localStorage.getItem("current.type") || "tian");
   const [font, setFont] = useState("FZKTJW");
   const [docked, setDocked] = useState(false);
   const words = str.split("");
@@ -67,8 +67,7 @@ function App() {
             <Help />
             <i
               onTouchEnd={() => {
-                console.log("123");
-                setDocked(!docked)
+                 setDocked(!docked)
               }}
               className="iconfont icon-setting" />
           </React.Fragment>
@@ -103,20 +102,16 @@ function App() {
                   />
                 </WingBlank>
                 <WhiteSpace />
-
                 <WingBlank>
                   <SegmentedControl
                     values={(["田字格", "米字格"])}
                     selectedIndex={type === 'mi' ? 1 : 0}
                     onChange={(e) => {
                       const { selectedSegmentIndex: v, value: label } = e.nativeEvent;
-                      setWords("");
                       const type = v === 1 ? "mi" : "tian";
                       setType(type)
+                      window.localStorage.setItem("current.type",type)
                       window._czc && window._czc.push(["_trackEvent", "setting", "type", label, 1, 'bt_' + type]);
-                      requestAnimationFrame(() => {
-                        setWords(str);
-                      })
                     }}
                   />
                 </WingBlank>

@@ -12,10 +12,11 @@
 .copybook-page {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+
 }
-.copybook-page canvas {
-  margin: 10px;
-}
+
 
 .my-radio  {
   padding: 2.5px;
