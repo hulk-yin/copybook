@@ -22,25 +22,7 @@ function App() {
   const [size, setSize] = useState(parseInt(window.localStorage.getItem("current.size"), 10) || 160);
   const [type, setType] = useState("tian");
   const [font, setFont] = useState("FZKTJW");
-  const [loadingFont, setLoadingFont] = useState(true)
   const [docked, setDocked] = useState(false);
-
-  useEffect(() => {
-    const isLoad = document.fonts.check(size * 0.7 + "px " + font)
-    setLoadingFont(!isLoad);
-    if (!isLoad) {
-      const fontInterval = setInterval(() => {
-        const isLoad = document.fonts.check(size * 0.7 + "px " + font)
-        if (isLoad) {
-          setLoadingFont(!isLoad)
-          clearInterval(fontInterval)
-          setWords("");
-          setTimeout(setWords, 30, str)
-        }
-      }, 100)
-    }
-
-  }, [size, font, str])
   const words = str.split("");
   // 字体来源：https://www.foundertype.com/
   const fonts = [{
@@ -178,11 +160,6 @@ function App() {
             }}
             autoHeight
           />
-          {loadingFont ? <div>
-            <Icon type="loading" />
-            加载字体，请耐心等待
-      </div>
-            : null}
           <div className="copybook-page" onTouchEnd={() => setDocked(false)}>
             {words.map((word, i) => <Matts type={type} font={font} size={size} key={i}>{word}</Matts>)}
           </div>
