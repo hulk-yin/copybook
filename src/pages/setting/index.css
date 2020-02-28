@@ -1,0 +1,32 @@
+@import './font.css';
+
+.words-input {
+  height: 30px;
+  width: 95%;
+  font-size: 20px;
+  border: 1px solid #ff6600;
+  padding: 4px 20px;
+  font-family: cursive;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px #ff6600;
+}
+
+.copybook-page {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 10px;
+}
+.copybook-page-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 100%;
+  border: 2px solid red;
+}
+
+.my-radio {
+  padding: 2.5px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin-right: 5px;
+}

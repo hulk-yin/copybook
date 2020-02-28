@@ -91,7 +91,7 @@ export default class Copybook extends React.Component {
                     this.element = el;
                 }}
                 style={{
-                    margin: "10",
+                    margin: 5,
                     border: "1px solid #999999"
                 }}
                 width={size}

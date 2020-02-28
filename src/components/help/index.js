@@ -5,13 +5,14 @@ export default () => {
     const [visible, setVisible] = useState(false)
     return <div>
         <i
-        className="iconfont icon-help"
-        onClick={() => {
-                
+            className="iconfont icon-help"
+            onClick={() => {
+
                 window._czc && window._czc.push(["_trackEvent", "help", "click", '查看帮', 1, 'help_btn']);
 
-                setVisible(true)}}
-       />
+                setVisible(true)
+            }}
+        />
         <Modal
             visible={visible}
             onClose={() => {
@@ -23,10 +24,13 @@ export default () => {
         >
             <div
                 className="help-weixi-code"
-            ></div>
+            >
+                <img src="/copybook/images/img_7308.JPG" />
+            </div>
             <div>
                 二维码有效期[2020-03-01]
             </div>
+
             {/*             
             微信号(点击复制): <input 
             value="qq63683697"
