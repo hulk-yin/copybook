@@ -25,7 +25,6 @@ export default () => {
             <div
                 className="help-weixi-code"
             >
-                <img src="/copybook/images/img_7308.JPG" />
             </div>
             <div>
                 二维码有效期[2020-03-01]

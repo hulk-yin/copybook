@@ -1,12 +1,12 @@
-.icon-help{
-    font-size: 28px;
-    margin-right: 8px;
-    color: #dddddd;
+.icon-help {
+  font-size: 28px;
+  margin-right: 8px;
+  color: #dddddd;
 }
-.help-weixi-code img{
-  /* background-image: url(../../resource/images/IMG_7308.JPG); */
+.help-weixi-code {
+  background-image: url(../../resource/images/IMG_7308.JPG);
   width: 300px;
-  /* height: 300px; */
+  height: 300px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
