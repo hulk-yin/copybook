@@ -10,13 +10,11 @@ import './index.css';
 window._czc = window._czc || [];
 let sizeTimer;
 export default () => {
-  const [size, setSize] = useState(parseInt(window.localStorage.getItem("setting.size"), 10) || 160);
+  const [size, setSize] = useState(parseInt(window.localStorage.getItem("setting.size"), 10) || 60);
   const [type, setType] = useState(window.localStorage.getItem("setting.type") || "tian");
-  const [font, setFont] = useState("FZKTJW");
+  const [font, setFont] = useState(window.localStorage.getItem("setting.font-family") || "FZKTJW");
   const fonts = fontList.map(({ label, value }) => ({
-    label: <font style={{
-      fontFamily: value
-    }}>{label}</font>,
+    label:label,
     labelText: label,
     value
   }))
@@ -66,6 +64,7 @@ export default () => {
             cols={1}
             onOk={v => {
               const value = v[0];
+              window.localStorage.setItem("setting.font-family",value) 
               const label = fonts.filter(({ value }) => value === v[0]).map(({ labelText }) => labelText)[0]
               window._czc && window._czc.push(["_trackEvent", "setting", "font", label, 1, 'font_select']);
               setFont(value)
