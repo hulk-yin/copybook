@@ -25,10 +25,7 @@ export default () => {
             <div
                 className="help-weixi-code"
             >
-            </div>
-            <div>
-                二维码有效期[2020-03-01]
-            </div>
+            </div> 
 
             {/*             
             微信号(点击复制): <input 
