@@ -34,7 +34,7 @@ export default ({ children, history, location, ...props }: LayoutProps) => {
           >
             {pathname === '/hanzi' ? children : null}
           </TabBar.Item>
-          <TabBar.Item
+          {/* <TabBar.Item
             title='检测'
             key='inspect'
             icon={<Icon size="large" type="scan" />}
@@ -44,7 +44,7 @@ export default ({ children, history, location, ...props }: LayoutProps) => {
               history.push("/inspect")
             }}>
             {pathname === '/inspect' ? children : null}
-          </TabBar.Item>
+          </TabBar.Item> */}
           <TabBar.Item
             title='设置'
             key='setting'
