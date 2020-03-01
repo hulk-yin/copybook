@@ -17,7 +17,7 @@ export default class Copybook extends React.Component<{ size: number, font: stri
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
-                    margin: 5,
+                    margin: 2,
                     border: "1px solid #999999"
                 }}
                 width={size}

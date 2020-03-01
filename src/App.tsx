@@ -7,6 +7,7 @@ import './App.css';
 import Hanzi from './pages/hanzi/index';
 import Setting from './pages/setting'
 import Layout from './layout/index'
+import Inspect from './pages/inspect';
 
 // declare var global: any;
 declare var window: any;
@@ -27,7 +28,7 @@ function App() {
             <Route path='/hanzi' component={Hanzi} />
             <Route path='/setting' component={Setting} />
             {/* <Route path='/activities' component={Activities} /> */}
-            {/* <Route path='/videos' component={Videos} /> */}
+            <Route path='/inspect' component={Inspect} />
             {/* <Route path='/mine' component={Mine} /> */}
           </Layout>} />
         </Switch>
