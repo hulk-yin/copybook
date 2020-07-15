@@ -34,17 +34,17 @@ export default ({ children, history, location, ...props }: LayoutProps) => {
           >
             {pathname === '/hanzi' ? children : null}
           </TabBar.Item>
-          {/* <TabBar.Item
-            title='检测'
+          <TabBar.Item
+            title='时钟'
             key='inspect'
             icon={<Icon size="large" type="scan" />}
             selectedIcon={<Icon size="large" type="scan" />}
-            selected={pathname === '/inspect'}
+            selected={pathname === '/clock'}
             onPress={() => {
-              history.push("/inspect")
+              history.push("/clock")
             }}>
-            {pathname === '/inspect' ? children : null}
-          </TabBar.Item> */}
+            {pathname === '/clock' ? children : null}
+          </TabBar.Item>
           <TabBar.Item
             title='设置'
             key='setting'

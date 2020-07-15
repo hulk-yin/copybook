@@ -8,7 +8,7 @@ import Hanzi from './pages/hanzi/index';
 import Setting from './pages/setting'
 import Layout from './layout/index'
 import Inspect from './pages/inspect';
-
+import Clock from './pages/clock';
 // declare var global: any;
 declare var window: any;
 
@@ -27,7 +27,7 @@ function App() {
           <Route path="/" children={(props: JSX.IntrinsicAttributes & { [x: string]: any; children: any; history: any; location: any; }) => <Layout {...props} >
             <Route path='/hanzi' component={Hanzi} />
             <Route path='/setting' component={Setting} />
-            {/* <Route path='/activities' component={Activities} /> */}
+            <Route path='/clock' component={Clock} />
             <Route path='/inspect' component={Inspect} />
             {/* <Route path='/mine' component={Mine} /> */}
           </Layout>} />
