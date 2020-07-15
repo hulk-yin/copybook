@@ -22,7 +22,18 @@ export default ({ children, history, location, ...props }: LayoutProps) => {
           barTintColor='white'
         >
           <TabBar.Item
-            title='汉字'
+            title='时钟'
+            key='inspect'
+            icon={<Icon size="large" type="scan" />}
+            selectedIcon={<Icon size="large" type="scan" />}
+            selected={pathname === '/clock'}
+            onPress={() => {
+              history.push("/clock")
+            }}>
+            {pathname === '/clock' ? children : null}
+          </TabBar.Item>
+          <TabBar.Item
+            title='字帖'
             key='hanzi'
             icon={<Icon size="large" type="zhong-o" />}
             selectedIcon={<Icon size="large" type="zhong" />}
@@ -33,17 +44,6 @@ export default ({ children, history, location, ...props }: LayoutProps) => {
             }}
           >
             {pathname === '/hanzi' ? children : null}
-          </TabBar.Item>
-          <TabBar.Item
-            title='时钟'
-            key='inspect'
-            icon={<Icon size="large" type="scan" />}
-            selectedIcon={<Icon size="large" type="scan" />}
-            selected={pathname === '/clock'}
-            onPress={() => {
-              history.push("/clock")
-            }}>
-            {pathname === '/clock' ? children : null}
           </TabBar.Item>
           <TabBar.Item
             title='设置'

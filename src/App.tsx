@@ -23,7 +23,7 @@ function App() {
           {/* <Route path="/" >
             <Redirect to='/hanzi' />
           </Route> */}
-          <Redirect exact path="/" to="/hanzi" />
+          <Redirect exact path="/" to="/clock" />
           <Route path="/" children={(props: JSX.IntrinsicAttributes & { [x: string]: any; children: any; history: any; location: any; }) => <Layout {...props} >
             <Route path='/hanzi' component={Hanzi} />
             <Route path='/setting' component={Setting} />

@@ -1,12 +1,12 @@
 @font-face {
   font-family: "FZKTJW";
-  src: url("../../resource/fonts/FZKTJW.TTF") format("truetype"); /* iOS 4.1- */
+ src: url("../../resource/fonts/FZKTJW.TTF") format("truetype");  /*  iOS 4.1- */
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "FZXKTJW";
-  src: url("../../resource/fonts/FZXKTJW.TTF") format("truetype"); /* iOS 4.1- */
+  /*  src: url("../../resource/fonts/FZXKTJW.TTF") format("truetype"); iOS 4.1- */
   font-style: normal;
   font-weight: normal;
 }
@@ -14,26 +14,26 @@
 
 @font-face {
     font-family: "STFWXZKJW";
-    src: url("../../resource/fonts/STFWXZKJW.TTF") format("truetype"); /* iOS 4.1- */
+    /*  src: url("../../resource/fonts/STFWXZKJW.TTF") format("truetype"); iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   }
 
 @font-face {
     font-family: "FZZJ-FYJW";
-    src: url("../../resource/fonts/FZZJ-FYJW.TTF") format("truetype"); /* iOS 4.1- */
+    /*  src: url("../../resource/fonts/FZZJ-FYJW.TTF") format("truetype"); iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   }
   @font-face {
     font-family: "FZSJ-DQYBKSJW";
-    src: url("../../resource/fonts/FZSJ-DQYBKSJW.TTF") format("truetype"); /* iOS 4.1- */
+    /*  src: url("../../resource/fonts/FZSJ-DQYBKSJW.TTF") format("truetype"); iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   }
   @font-face{
     font-family: "TYZKSJW";
-    src: url("../../resource/fonts/TYZKSJW.TTF") format("truetype"); /* iOS 4.1- */
+    /*  src: url("../../resource/fonts/TYZKSJW.TTF") format("truetype"); iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   } 
@@ -41,14 +41,14 @@
 
   @font-face{
     font-family: "FZYBKSJW";
-    src: url("../../resource/fonts/FZYBKSJW.TTF") format("truetype"); /* iOS 4.1- */
+    /*  src: url("../../resource/fonts/FZYBKSJW.TTF") format("truetype"); iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   } 
 
   @font-face{
     font-family: "PZHGBZTJW";
-    src: url("../../resource/fonts/PZHGBZTJW.TTF") format("truetype"); /* iOS 4.1- */
+    /*  src: url("../../resource/fonts/PZHGBZTJW.TTF") format("truetype"); iOS 4.1- */
     font-style: normal;
     font-weight: normal;
   } 
