@@ -140,7 +140,7 @@ export const drawClockPointer = (ctx: CanvasRenderingContext2D, props: {
     taskList.forEach(item => {
         // ctx.fillStyle = "#000000"
         drawSector(ctx, {
-            radius: radius * 0.8,
+            radius: radius * 0.7,
             start: item.start,
             end: item.end,
             imgUrl: item.imgUrl,
