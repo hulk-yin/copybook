@@ -46,6 +46,7 @@ function App() {
     const ctx = canvas.getContext("2d");
     canvas.width = Math.min(window.innerWidth, window.innerHeight)
     canvas.height = Math.min(window.innerWidth, window.innerHeight)
+    let requestID:number;
     if (ctx) {
       const w = ctx.canvas.width;
       const h = ctx.canvas.height;
@@ -69,7 +70,6 @@ function App() {
       if (ctxLayerPointer) {
         ctxLayerPointer.translate(zX, zY)
       }
-
       const drawShand = () => {
         if (ctx) {
           ctx.clearRect(-zX, -zY, 2 * zX, 2 * zY);
@@ -84,9 +84,13 @@ function App() {
           ctx.drawImage(LayerPointer, -zX, -zY)
           ctx.drawImage(LayerBack, -zX, -zY)
         }
-        requestAnimationFrame(drawShand)
+        requestID= requestAnimationFrame(drawShand)
       }
       drawShand()
+    }
+    return ()=>{
+      cancelAnimationFrame(requestID)
+      // clearImmediate(rafHandler)
     }
   }, [])
   return (
