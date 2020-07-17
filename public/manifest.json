@@ -1,6 +1,6 @@
 {
-  "short_name": "字帖",
-  "name": "字体连续辅助工具",
+  "short_name": "学习辅助",
+  "name": "学习辅助工具",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "logo.svg",
+      "type": "text/xml	",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "logo.svg",
+      "type": "text/xml",
       "sizes": "512x512"
     }
   ],
