@@ -9,6 +9,7 @@ import Setting from './pages/setting'
 import Layout from './layout/index'
 import Inspect from './pages/inspect';
 import Clock from './pages/clock';
+import TaskList from './pages/task-list/index';
 // declare var global: any;
 declare var window: any;
 
@@ -26,6 +27,7 @@ function App() {
           <Redirect exact path="/" to="/clock" />
           <Route path="/" children={(props: JSX.IntrinsicAttributes & { [x: string]: any; children: any; history: any; location: any; }) => <Layout {...props} >
             <Route path='/hanzi' component={Hanzi} />
+            <Route path='/task-list' component={TaskList} />
             <Route path='/setting' component={Setting} />
             <Route path='/clock' component={Clock} />
             <Route path='/inspect' component={Inspect} />

@@ -22,15 +22,15 @@ export default ({ children, history, location, ...props }: LayoutProps) => {
           barTintColor='white'
         >
           <TabBar.Item
-            title='时钟'
+            title='计划'
             key='inspect'
             icon={<Icon size="large" type="scan" />}
             selectedIcon={<Icon size="large" type="scan" />}
-            selected={pathname === '/clock'}
+            selected={['/clock',"/task-list"].indexOf(pathname)>-1 }
             onPress={() => {
               history.push("/clock")
             }}>
-            {pathname === '/clock' ? children : null}
+            {['/clock',"/task-list"].indexOf(pathname)>-1 ? children : null}
           </TabBar.Item>
           <TabBar.Item
             title='字帖'

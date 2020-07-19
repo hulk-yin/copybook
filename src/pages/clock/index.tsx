@@ -3,7 +3,8 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 import '.'
 import './index.scss';
 import { drawClockBlank, drawClockPointer } from './utils';
-import { Tag } from 'antd-mobile';
+import { Tag, NavBar, Popover, Icon } from 'antd-mobile';
+import { RouteProps, useHistory } from 'react-router-dom';
 declare var window: any;
 window._czc = window._czc || [];
 const taskList = [{
@@ -40,13 +41,15 @@ const taskList = [{
   end: new Date(2020, 7, 15, 19, 15, 0)
 }
 ]
-function App() {
+function App(props:RouteProps) {
+  // props.
+  const history = useHistory();
   useEffect(() => {
     const canvas: HTMLCanvasElement = document.querySelector(".clock-canvas") || document.createElement("canvas")
     const ctx = canvas.getContext("2d");
     canvas.width = Math.min(window.innerWidth, window.innerHeight)
     canvas.height = Math.min(window.innerWidth, window.innerHeight)
-    let requestID:number;
+    let requestID: number;
     if (ctx) {
       const w = ctx.canvas.width;
       const h = ctx.canvas.height;
@@ -84,17 +87,38 @@ function App() {
           ctx.drawImage(LayerPointer, -zX, -zY)
           ctx.drawImage(LayerBack, -zX, -zY)
         }
-        requestID= requestAnimationFrame(drawShand)
+        requestID = requestAnimationFrame(drawShand)
       }
       drawShand()
     }
-    return ()=>{
+    return () => {
       cancelAnimationFrame(requestID)
       // clearImmediate(rafHandler)
     }
   }, [])
   return (
     <div className="clock">
+      <NavBar
+        rightContent={
+          <Popover
+          onSelect={({props:{firstItem}})=>{
+            // console.log(props.firstItem)
+            // props.
+            history.push(firstItem)
+          }}
+            overlay={[
+              <Popover.Item
+                key="task-list"
+                firstItem="/task-list"
+              >
+                计划管理
+              </Popover.Item>
+            ]}
+          >
+            <Icon type="ellipsis" />
+          </Popover>
+        }
+      >今日计划</NavBar>
       <div id="img-container" style={{ display: "none" }}></div>
       {taskList.map(item => <Tag key={item.name} style={{ backgroundColor: item.color }} >{item.name}</Tag>)}
       <canvas className='clock-canvas'>

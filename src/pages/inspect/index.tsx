@@ -12,7 +12,7 @@ export default () => {
     }
     const [word, setWord] = useState("我");
     const videoPort = 375;
-    const [size, setSize] = useState(200);
+    const [size] = useState(200);
     const fontFamily = localStorage.getItem("setting.font-family");
     useEffect(() => {
         let videoInput: MediaStream | null;
