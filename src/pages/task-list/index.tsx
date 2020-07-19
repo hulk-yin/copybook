@@ -5,12 +5,23 @@ import { Drawer, Button, List, NavBar, Icon, SwipeAction, Tag } from 'antd-mobil
 import dayjs from 'dayjs';
 import * as service from './service';
 import { useHistory } from 'react-router-dom';
+import { timeFormat } from './uitls';
 
 const TaskList: React.FC<any> = (props) => {
   const history = useHistory()
   const [visible, updateVisible] = useState<boolean>(false);
   const [list, updateList] = useState<Task[]>([]);
-  const [count, updateCount] = useState<number>(0)
+  const [count, updateCount] = useState<number>(0);
+  const [editTask, updateEditTask] = useState<Task>({
+    id: "",
+    name: "",
+    repeatDays: [],
+    repeatType: "none",
+    startTime: 9 * 60,
+    endTime: 10 * 60,
+    startDate: dayjs(new Date()).format("YYYYMMDD"),
+    endDate: dayjs(new Date()).format("YYYYMMDD"),
+  })
   useEffect(() => {
     service.load().then(res => {
       updateList(res)
@@ -25,17 +36,9 @@ const TaskList: React.FC<any> = (props) => {
       onOpenChange={() => updateVisible(!visible)}
       sidebar={<TaskForm
         visible={visible}
-        task={{
-          name: "学习",
-          repeatDays: [],
-          repeatType: "none",
-          startTime: "9:0",
-          endTime: "10:00",
-          startDate: new Date(),
-          endDate: new Date()
-        }}
+        task={editTask}
         onSubmit={(data) => {
-          service.add(data)
+          service.save(data)
           updateVisible(false)
         }}
         onCancel={() => updateVisible(false)}
@@ -56,13 +59,27 @@ const TaskList: React.FC<any> = (props) => {
               key={task.id}
               right={[
                 {
+                  text: "修改",
+                  onPress() {
+                    updateEditTask(task);
+                    updateVisible(true);
+                  },
+                  style: {
+                    color: "#FFF",
+                    fontWeight: "bolder",
+                    padding: "10px 20px",
+                    backgroundColor: "#108ee9"
+                  }
+                }, {
                   text: "删除",
                   onPress() {
                     service.remove(task.id)
                     updateCount(count + 1)
                   },
                   style: {
-                    padding: "10px",
+                    color: "#FFF",
+                    fontWeight: "bolder",
+                    padding: "10px 20px",
                     backgroundColor: "red"
                   }
                 }
@@ -71,18 +88,19 @@ const TaskList: React.FC<any> = (props) => {
               <List.Item
                 multipleLine
                 align="top"
-                extra={
-                  `${task.startTime}-${task.endTime}`
-                }
               >
                 {task.name}
+                <List.Item.Brief>
+                  {dayjs(task.startDate).format("YYYY-MM-DD")}
+                  {task.repeatType !== "none" ? ` - ${dayjs(task.endDate).format("YYYY-MM-DD")}` : null}
+                  &nbsp;
+                  {`${timeFormat(task.startTime)}-${timeFormat(task.endTime)}`}
+                </List.Item.Brief>
                 <List.Item.Brief>
                   {task.repeatType === "day" ? <Tag selected >每天</Tag> : null}
                   {task.repeatType === "weekday" ? <Tag selected >工作日</Tag> : null}
                   {task.repeatType === "weekend" ? <Tag selected >周末</Tag> : null}
-                  {task.repeatType === "other" ? task.repeatDays.map(v => <Tag selected  key={v}>{v}</Tag>) : null}
-                  &nbsp;{dayjs(task.startDate).format("YY-MM-DD")}
-                  {task.repeatType !== "none" ? ` - ${dayjs(task.endDate).format("YY-MM-DD")}` : null}
+                  {task.repeatType === "other" ? task.repeatDays.map(v => <Tag selected key={v}>{v}</Tag>) : null}
                 </List.Item.Brief>
               </List.Item>
             </SwipeAction>

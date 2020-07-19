@@ -17,7 +17,6 @@ const TaskRepeatTypeItem: React.FC<InputProps> = (props) => {
                 const target = e.target as HTMLInputElement
                 if (target.type === "checkbox") {
                     target.value = target.name
-                    console.log(props)
                     props.onChange && props.onChange(e as any)
                 }
                 // e.stopPropagation()

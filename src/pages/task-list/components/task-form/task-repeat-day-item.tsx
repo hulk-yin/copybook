@@ -1,6 +1,7 @@
 import React from 'react';
 import { List, Checkbox } from 'antd-mobile';
-import { Week } from './typing.d';
+// import { Week } from './typing.d';
+import { Week } from './typing.d'
 import { InputProps } from 'antd-mobile/lib/input-item/Input';
 const list: Array<{
     value: Week,
@@ -14,7 +15,7 @@ const list: Array<{
         { value: Week.Saturday, label: "周六" },
         { value: Week.Sunday, label: "周日" }
     ]
-const TaskRepeatDayItem: React.FC<InputProps & { repeatType: Task.RepeatType, value?: Week[],onChange?:any }> = (props) => {
+const TaskRepeatDayItem: React.FC<InputProps & { repeatType: Task.RepeatType, value?: Week[], onChange?: any }> = (props) => {
     const { value = [] } = props;
     // console.log(value)
     return (
@@ -33,20 +34,17 @@ const TaskRepeatDayItem: React.FC<InputProps & { repeatType: Task.RepeatType, va
                         if (!checked && index > -1) {
                             ret.splice(index, 1)
                         }
-                        console.log(ret);
                         target.value = ret as any;
                         props.onChange && props.onChange(ret)
                     }
                 }
-
-
             }}
         >
             <List.Item.Brief>
                 {
                     list.map(item => <Checkbox
                         key={item.value}
-                        checked={value.indexOf(item.value)>-1}
+                        checked={value.indexOf(item.value) > -1}
                         name={item.value}
                     >{item.label}</Checkbox>)
                 }

@@ -1,4 +1,7 @@
 
+// import * as V from 'async-validator '
+// export = RCForm
+// export as namespace RCForm
 declare namespace RCForm {
     type PickOne<T, P extends keyof T> = T[P]
     type ValidateTrigger = "onBlur"
@@ -48,11 +51,11 @@ declare namespace RCForm {
     }
     interface FormInstance<TSource = any> {
         /**设置初始化数据 */
-        setFieldsInitialValue:(values: Partial<TSource>) => void
+        setFieldsInitialValue: (values: Partial<TSource>) => void
         // getFieldDecorator
         setFieldsValue: (values: Partial<TSource>) => void
         validateFields: {
-            <TName extends keyof TSource = string> (
+            <TName extends keyof TSource = string>(
                 callback: {
                     (
                         error: {
@@ -66,7 +69,7 @@ declare namespace RCForm {
                             },
                             fields: TSource
                         },
-                        values:TSource
+                        values: TSource
                     ): void
                 }
             ): void
@@ -92,7 +95,7 @@ declare namespace RCForm {
             }
         }
         getFieldError: (name: keyof TSource) => string[] | null
-        getAllValues:()=>TSource
+        getAllValues: () => TSource
     }
     type FormProps<T = any, TSource = any> = T & {
         /**RCForm 表单 */
@@ -104,7 +107,7 @@ declare namespace RCForm {
     interface ComponentType<T = any, TSource = any> extends React.ComponentType<FormProps<T, TSource>> {
     }
 }
+
 declare module "rc-form" {
     export function createForm<IProps = any>(option?: RCForm.CreateFromOptions): <T = IProps>(c: RCForm.ComponentType<T>) => React.ComponentType<T>
-
 }

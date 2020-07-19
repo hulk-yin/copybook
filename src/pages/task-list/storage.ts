@@ -51,9 +51,11 @@ export default class TaskStorage {
     }
     async update(task: ITask) {
         const store = await this.store;
-        const request = store.get(task.id);
+        const request = store.put(task);
         return await new Promise((resolve, reject) => {
-            request.onsuccess = resolve
+            request.onsuccess = (e) => {
+                resolve(request.result)
+            }
             request.onerror = reject
         })
     }
