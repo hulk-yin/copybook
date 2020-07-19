@@ -155,7 +155,7 @@ export const drawClockPointer = (ctx: CanvasRenderingContext2D, props: {
     ctx.fill()
     //时针
     const now = new Date();
-    const seconds = now.getSeconds() + now.getTime() % 1000 / 1000
+    const seconds = now.getSeconds() //+ now.getTime() % 1000 / 1000
     const minutes = now.getMinutes() + seconds / 60
     const hours = now.getHours() + minutes / 60;
     drawClockOnePointer(ctx, {
