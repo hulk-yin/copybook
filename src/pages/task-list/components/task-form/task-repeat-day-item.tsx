@@ -45,7 +45,7 @@ const TaskRepeatDayItem: React.FC<InputProps & { repeatType: Task.RepeatType, va
                     list.map(item => <Checkbox
                         key={item.value}
                         checked={value.indexOf(item.value) > -1}
-                        name={item.value}
+                        name={item.value as any}
                     >{item.label}</Checkbox>)
                 }
             </List.Item.Brief>

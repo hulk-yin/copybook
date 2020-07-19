@@ -7,21 +7,21 @@ import * as service from './service';
 import { useHistory } from 'react-router-dom';
 import { timeFormat } from './uitls';
 
+const newTask: any = {
+  name: "",
+  repeatDays: [],
+  repeatType: "none",
+  startTime: 9 * 60,
+  endTime: 10 * 60,
+  startDate: dayjs(new Date()).format("YYYYMMDD"),
+  endDate: dayjs(new Date()).format("YYYYMMDD"),
+}
 const TaskList: React.FC<any> = (props) => {
   const history = useHistory()
   const [visible, updateVisible] = useState<boolean>(false);
   const [list, updateList] = useState<Task[]>([]);
   const [count, updateCount] = useState<number>(0);
-  const [editTask, updateEditTask] = useState<Task>({
-    id: "",
-    name: "",
-    repeatDays: [],
-    repeatType: "none",
-    startTime: 9 * 60,
-    endTime: 10 * 60,
-    startDate: dayjs(new Date()).format("YYYYMMDD"),
-    endDate: dayjs(new Date()).format("YYYYMMDD"),
-  })
+  const [editTask, updateEditTask] = useState<Task>(newTask)
   useEffect(() => {
     service.load().then(res => {
       updateList(res)
@@ -34,15 +34,16 @@ const TaskList: React.FC<any> = (props) => {
       // docked={true}
       // enableDragHandle
       onOpenChange={() => updateVisible(!visible)}
-      sidebar={<TaskForm
-        visible={visible}
-        task={editTask}
-        onSubmit={(data) => {
-          service.save(data)
-          updateVisible(false)
-        }}
-        onCancel={() => updateVisible(false)}
-      />}
+      sidebar={
+        visible ?
+          <TaskForm
+            task={editTask}
+            onSubmit={(data) => {
+              service.save(data)
+              updateVisible(false)
+            }}
+            onCancel={() => updateVisible(false)}
+          /> : null}
     >
       <NavBar
         leftContent={<Icon type="left"
@@ -52,7 +53,10 @@ const TaskList: React.FC<any> = (props) => {
         />}
       >计划管理</NavBar>
       <div>
-        <Button onClick={() => updateVisible(true)}>添加计划</Button>
+        <Button onClick={() => {
+          updateEditTask(newTask);
+          updateVisible(true)
+        }}>添加计划</Button>
         <List>
           {list.map(task =>
             <SwipeAction

@@ -15,6 +15,8 @@ export default class TaskStorage {
                 const db = event.target.result;
                 const objectStore: IDBObjectStore = db.createObjectStore('task-list', { keyPath: 'id', autoIncrement: true });
                 objectStore.createIndex('name', 'name', { unique: false });
+                objectStore.createIndex('startDate', 'startDate', { unique: false });
+                objectStore.createIndex('endDate', 'endDate', { unique: false });
                 resolve(db)
             }
             request.onerror = (event) => {
@@ -39,7 +41,6 @@ export default class TaskStorage {
         const request = store.add(task)
         return await new Promise((resolve, reject) => {
             request.onsuccess = (e) => {
-                console.log("success:", e);
                 resolve(true)
             }
             request.onerror = (e) => {
@@ -62,5 +63,22 @@ export default class TaskStorage {
     async remove(id: string) {
         const store = await this.store;
         store.delete(id)
+    }
+    async query({ startDate, endDate = startDate }: { startDate: number, endDate?: number }): Promise<ITask[]> {
+        const store = await this.store;
+        const request = store.getAll() as IDBRequest<ITask[]>
+        return await new Promise((resolve, reject) => {
+            request.onsuccess = (e) => {
+                resolve((request.result).filter((task) => {
+                    if (startDate >= task.startDate && endDate <= task.endDate) {
+                        return true
+                    }
+                    return false
+                }).sort((a, b) => {
+                    return a.startTime - b.startTime
+                }))
+            }
+            request.onerror = reject
+        })
     }
 }

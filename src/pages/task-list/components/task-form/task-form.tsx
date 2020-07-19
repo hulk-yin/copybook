@@ -1,31 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Button, InputItem, Calendar, List, Toast, Range } from 'antd-mobile';
+import React from 'react';
+import { Button, InputItem,  List, Toast } from 'antd-mobile';
 import { createForm } from "rc-form";
-import dayjs from 'dayjs';
 import TaskRepeatTypeItem from './task-repeat-type-item';
 import TaskRepeatDayItem from './task-repeat-day-item';
 import { Week } from './typing.d'
-import { timeFormat } from '../../uitls';
 import TaskTimeRangItem from './task-time-rang-item';
 import TaskDateRangItem from './task-date-rang-item';
 
 interface ISource extends Task<Week> { }
 interface IProps {
     task: ISource
-    visible: boolean
     onSubmit: (data: ISource) => void
     onCancel: () => void
 }
 const TaskForm: RCForm.FC<IProps, ISource> = (props) => {
-    const [visibleCalendar, updateVisibleCalendar] = useState<boolean>(false)
-    const { form, task, visible } = props;
-
-    useEffect(() => {
-        if (visible === false) {
-            // updateVisibleCalendar(visible);
-        }
-    }, [visible])
-    const { getFieldProps, getFieldsValue, getFieldError, getFieldDecorator, setFieldsValue, validateFields } = form
+    const { form, task } = props;
+    const { getFieldProps, getFieldsValue, getFieldError,  setFieldsValue, validateFields } = form
 
     getFieldProps("startTime", { initialValue: task.startTime })
     getFieldProps("endTime", { initialValue: task.endTime })

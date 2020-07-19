@@ -1,7 +1,14 @@
 
 declare namespace Clock {
-
+  interface Task {
+    name: string
+    color: string
+    start: Date
+    end: Date
+    imgUrl: string
+  }
 }
+
 
 // interface Clock {
 // //   drawClockBlank: () => void

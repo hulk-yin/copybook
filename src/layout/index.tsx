@@ -26,11 +26,11 @@ export default ({ children, history, location, ...props }: LayoutProps) => {
             key='inspect'
             icon={<Icon size="large" type="scan" />}
             selectedIcon={<Icon size="large" type="scan" />}
-            selected={['/clock',"/task-list"].indexOf(pathname)>-1 }
+            selected={pathname.indexOf("task") === 1}
             onPress={() => {
-              history.push("/clock")
+              history.push("/task-clock")
             }}>
-            {['/clock',"/task-list"].indexOf(pathname)>-1 ? children : null}
+            {pathname.indexOf("task") === 1 ? children : null}
           </TabBar.Item>
           <TabBar.Item
             title='字帖'

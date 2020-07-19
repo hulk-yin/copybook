@@ -1,8 +1,9 @@
 import React from 'react';
 import './index.css';
+type IconType = "scan" | "zhong-o" | "zhong" | "setting"
 interface IconProps {
-    type: string;
-    size?: "middle" | "large" | "small";
+    type: IconType
+    size?: "middle" | "large" | "small"
     className?: string
 }
 export default (

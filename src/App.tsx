@@ -8,7 +8,7 @@ import Hanzi from './pages/hanzi/index';
 import Setting from './pages/setting'
 import Layout from './layout/index'
 import Inspect from './pages/inspect';
-import Clock from './pages/clock';
+import Clock from './pages/task-clock';
 import TaskList from './pages/task-list/index';
 // declare var global: any;
 declare var window: any;
@@ -29,7 +29,7 @@ function App() {
             <Route path='/hanzi' component={Hanzi} />
             <Route path='/task-list' component={TaskList} />
             <Route path='/setting' component={Setting} />
-            <Route path='/clock' component={Clock} />
+            <Route path='/task-clock' component={Clock} />
             <Route path='/inspect' component={Inspect} />
             {/* <Route path='/mine' component={Mine} /> */}
           </Layout>} />

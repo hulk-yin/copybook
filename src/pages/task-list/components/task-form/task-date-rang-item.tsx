@@ -38,7 +38,7 @@ const TaskDateRangItem: React.FC<CalendarProps & { value: [string, string], onCh
                 showShortcut
                 type={"range"}
                 // defaultDate={new Date(value[0]) || new Date()}
-                defaultValue={[value[0], value[1]] as any}
+                defaultValue={[dayjs(value[0]).toDate(), dayjs(value[1]).toDate()] as any}
             />
         </React.Fragment>
 

@@ -27,8 +27,8 @@ interface Task<TWeek = any> {
     repeatDays: Array<TWeek>
     startTime: number
     endTime: number
-    startDate: number | string
-    endDate: number | string
+    startDate: number 
+    endDate: number 
 }
 // export = Task;
 // export as namespace Task;
