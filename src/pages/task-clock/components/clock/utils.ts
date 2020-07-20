@@ -17,10 +17,10 @@ const drawClockCalibration = (ctx: CanvasRenderingContext2D, props: IdrawCalibra
         const radian = getRadian(parts, i)
         x = Math.sin(radian) * (radius + inner);
         y = Math.cos(radian) * (radius + inner);
-        ctx.moveTo(x, y);
+        ctx.moveTo(Math.floor(x), Math.floor(y))
         x = Math.sin(radian) * (radius + outer);
         y = Math.cos(radian) * (radius + outer);
-        ctx.lineTo(x, y);
+        ctx.lineTo(Math.floor(x), Math.floor(y))
         if (size) {
             ctx.lineWidth = size
         }
@@ -29,10 +29,10 @@ const drawClockCalibration = (ctx: CanvasRenderingContext2D, props: IdrawCalibra
             y = Math.cos(radian) * (radius + outer + textOffset);
             if (parts === 60) {
                 if (i % 5 === 0) {
-                    ctx.fillText((i || parts).toString(), x, y)
+                    ctx.fillText((i || parts).toString(), Math.floor(x), Math.floor(y))
                 }
             } else {
-                ctx.fillText((i || parts).toString(), x, y)
+                ctx.fillText((i || parts).toString(), Math.floor(x), Math.floor(y))
             }
         }
     }
@@ -71,10 +71,10 @@ const drawClockOnePointer = (ctx: CanvasRenderingContext2D, props: IdrawClockOne
     const radian = getRadian(parts, postion)
     x = Math.sin(radian) * (radius + start);
     y = Math.cos(radian) * (radius + start);
-    ctx.moveTo(x, y);
+    ctx.moveTo(Math.floor(x), Math.floor(y))
     x = Math.sin(radian) * (radius + end);
     y = Math.cos(radian) * (radius + end);
-    ctx.lineTo(x, y);
+    ctx.lineTo(Math.floor(x), Math.floor(y))
     ctx.lineWidth = lineWidth
     ctx.stroke()
 }
