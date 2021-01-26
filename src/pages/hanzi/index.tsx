@@ -14,12 +14,12 @@ function App() {
   const font = window.localStorage.getItem("setting.font-family") || "FZKTJW";
   // const words = str.split("");
   const printWords = str.split("\n").map((item: string) => {
-    const lent = item.length % 16;
+    const lent = item.length % 12;
      
     if (lent == 0 && item) {
       return item;
     }
-    const ret = item + "                    ".slice(1, 16 - lent+1);
+    const ret = item + "                    ".slice(1, 12 - lent+1);
     console.log(ret,item.length,16-lent,ret.length)
     return ret;
   }).join("").split("");
@@ -31,7 +31,7 @@ function App() {
       {isPrint ?
         <div className="copybook-print">
           <div className="copybook-page-box" >
-            {printWords.map((word: string, i: number) => <Matts type={type} font={font} size={40} key={i}>{word}</Matts>)}
+            {printWords.map((word: string, i: number) => <Matts type={type} font={font} size={55} key={i}>{word}</Matts>)}
           </div>
         </div>
         : null}
