@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Modal } from 'antd-mobile';
+import { Modal,Button } from 'antd-mobile';
 // import html2canvas from 'html2canvas';
 // import {saveAsPNG} from 'canvas2image';
 import './index.css';
-import { Button } from 'antd';
 export default (props) => {
     const [visible, setVisible] = useState(false)
     // const [canvas,updateCanvas] = useState(null);

@@ -16,7 +16,7 @@ function App() {
   const printWords = str.split("\n").map((item: string) => {
     const lent = item.length % 12;
      
-    if (lent == 0 && item) {
+    if (lent === 0 && item) {
       return item;
     }
     const ret = item + "                    ".slice(1, 12 - lent+1);
