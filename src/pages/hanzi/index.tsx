@@ -12,18 +12,26 @@ function App() {
   const size = parseInt(window.localStorage.getItem("setting.size"), 10) || 160
   const type = window.localStorage.getItem("setting.type") || "tian";
   const font = window.localStorage.getItem("setting.font-family") || "FZKTJW";
-  const words = str.split("");
+  // const words = str.split("");
   const printWords = str.split("\n").map((item: string) => {
-    const lent = item.length % 12;
-    return item + "                                                  ".slice(0, 12 - item.length % 12-1)
-  }).join("\n").split("");
+    const lent = item.length % 16;
+     
+    if (lent == 0 && item) {
+      return item;
+    }
+    const ret = item + "                    ".slice(1, 16 - lent+1);
+    console.log(ret,item.length,16-lent,ret.length)
+    return ret;
+  }).join("").split("");
+  
+  const words =printWords;
   const [isPrint, setIsPrint] = useState(false);
   return (
     <div>
       {isPrint ?
         <div className="copybook-print">
           <div className="copybook-page-box" >
-            {printWords.map((word: string, i: number) => <Matts type={type} font={font} size={54} key={i}>{word}</Matts>)}
+            {printWords.map((word: string, i: number) => <Matts type={type} font={font} size={40} key={i}>{word}</Matts>)}
           </div>
         </div>
         : null}
