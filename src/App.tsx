@@ -1,15 +1,15 @@
-import React from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import React from "react";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 
 // import logo from './logo.svg';
-import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
-import './App.css';
-import Hanzi from './pages/hanzi/index';
-import Setting from './pages/setting'
-import Layout from './layout/index'
-import Inspect from './pages/inspect';
-import Clock from './pages/task-clock';
-import TaskList from './pages/task-list/index';
+import "antd-mobile/dist/antd-mobile.css"; // or 'antd-mobile/dist/antd-mobile.less'
+import "./App.css";
+import Hanzi from "./pages/hanzi/index";
+import Setting from "./pages/setting";
+import Layout from "./layout/index";
+import Inspect from "./pages/inspect";
+import Clock from "./pages/task-clock";
+import TaskList from "./pages/task-list/index";
 // declare var global: any;
 declare var window: any;
 
@@ -24,20 +24,31 @@ function App() {
           {/* <Route path="/" >
             <Redirect to='/hanzi' />
           </Route> */}
-          <Redirect exact path="/" to="/task-clock" />
-          <Route path="/" children={(props: JSX.IntrinsicAttributes & { [x: string]: any; children: any; history: any; location: any; }) => <Layout {...props} >
-            <Route path='/hanzi' component={Hanzi} />
-            <Route path='/task-list' component={TaskList} />
-            <Route path='/setting' component={Setting} />
-            <Route path='/task-clock' component={Clock} />
-            <Route path='/inspect' component={Inspect} />
-            {/* <Route path='/mine' component={Mine} /> */}
-          </Layout>} />
+          <Redirect exact path="/" to="/hanzi" />
+          <Route
+            path="/"
+            children={(
+              props: JSX.IntrinsicAttributes & {
+                [x: string]: any;
+                children: any;
+                history: any;
+                location: any;
+              }
+            ) => (
+              <Layout {...props}>
+                <Route path="/hanzi" component={Hanzi} />
+                <Route path="/task-list" component={TaskList} />
+                <Route path="/setting" component={Setting} />
+                <Route path="/task-clock" component={Clock} />
+                <Route path="/inspect" component={Inspect} />
+                {/* <Route path='/mine' component={Mine} /> */}
+              </Layout>
+            )}
+          />
         </Switch>
       </HashRouter>
     </div>
-  )
+  );
 }
-
 
 export default App;

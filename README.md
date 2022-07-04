@@ -7,6 +7,8 @@ ttf2svg : https://www.npmjs.com/package/ttf2svg
 ## Available Scripts
 
 
+docker stop copybook ; docker rm copybook ; docker rmi copybook ; docker build ./ -t copybook && docker run --name copybook -d   -p 80:80 copybook
+
 In the project directory, you can run:
 
 ### `yarn start`
